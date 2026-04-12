@@ -1,0 +1,38 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="serial_setup" id="xI?)s*W;jyvk7s]03T!Y" x="36" y="58">
+    <field name="SERIAL_ID">Serial</field>
+    <field name="SPEED">9600</field>
+  </block>
+  <block type="arduino_functions" id="DHr;(xu7Pp?Om=O@|!f)" x="377" y="69">
+    <statement name="LOOP_FUNC">
+      <block type="procedures_callnoreturn" id="%f0lzT.sq*`,[9.(4EaE">
+        <mutation name="readpotentiometervolume"></mutation>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="Y[*ed8-~f#-=:k;+DhEX" x="374" y="215">
+    <field name="NAME">readpotentiometervolume</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="h2we]H9yL=NVD~dfx!C*">
+        <field name="VAR">analogvalue</field>
+        <value name="VALUE">
+          <block type="io_analogread" id="h.:j{O0o%p(5M(`2Bg}P">
+            <field name="PIN">A1</field>
+          </block>
+        </value>
+        <next>
+          <block type="serial_print" id="y7F9i~WwKeu~]L#f9X}N">
+            <field name="SERIAL_ID">Serial</field>
+            <field name="NEW_LINE">TRUE</field>
+            <value name="CONTENT">
+              <block type="variables_get" id="KQ]1DIovNdnV)gkEap%l">
+                <field name="VAR">analogvalue</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
